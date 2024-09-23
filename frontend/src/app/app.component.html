@@ -1,0 +1,76 @@
+
+<!--  Loading message div  -->
+<div *ngIf="isLoading" class="loading">
+    <!-- <img src="assets/loading.gif" alt="....."  width = "100px" height = "100px"/> -->
+    <p>please wait for server to respond...</p>
+  </div>
+  
+  
+  <main *ngIf="!isLoading" class="main">
+  <!--  content div is for seat display layout  -->
+    <div class="content">
+  
+      <!-- Left side grid  -->
+      <div class="left-side">
+        <div class="seat-grid-left">
+          <div
+            class="seat"
+            [ngClass]="seat === 0 ? 'seat-vacant' : 'seat-selected'"
+            *ngFor="let seat of seatsArrayLeft"
+          >
+          <!--  initilizing seats based on backend data  -->
+            <div class="seat-image">
+              <img
+                [src]="seat === 0 ? 'assets/sofa.png' : 'assets/sofa_booked.png'"
+                alt="Seat"
+                class="seat-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  divider  -->
+      <!-- <div class="divider" role="separator" aria-label="Divider"></div> -->
+  
+      <!--  Right side grid  -->
+      <div class="right-side">
+        <div class="seat-grid-right">
+          <div
+            class="seat"
+            [ngClass]="seat === 0 ? 'seat-vacant' : 'seat-selected'"
+            *ngFor="let seat of seatsArrayRight"
+          >
+           <!--  initilizing seats based on backend data  -->
+            <div class="seat-image">
+              <img
+                [src]="seat === 0 ? 'assets/sofa.png' : 'assets/sofa_booked.png'"
+                alt="Seat"
+                class="seat-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  divider  -->
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <!--  Form layout  -->
+    <div class="booking-form">
+      <form (ngSubmit)="bookSeats()">
+        <h2>Book your seats</h2>
+        <input
+          type="number"
+          [(ngModel)]="numOfSeats"
+          name="seats"
+          placeholder="Enter number of seats to book"
+          min="1"
+          max="7"
+          required
+        />
+        <button class="btn" type="submit">Book</button>
+        <button class="btn btn-delete" type="button" (click)="vacateAllSeats()">Vacate All Seats</button>
+      </form>
+    </div>
+  </main>
+  
+  <router-outlet />

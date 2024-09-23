@@ -1,0 +1,7 @@
+[build]
+  publish = "dist/frontend/browser"
+  command = "ng build"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -5,13 +5,53 @@
       box-sizing: border-box;
   }
 
-  h2 {
+  h1{
+    text-align: center;
+  }
+
+  p {
     color: var(--gray-900);
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 300;
   }
 
+  form {
+    display: flex;
+    align-items: center; 
+    gap: 10px; /* Add some spacing between items */
+  }
+  
+  form h3 {
+    margin: 10px;
+  }
+  
+  form input {
+    flex: 1; 
+    padding: 5px;
+    margin-left: 10px; /* Add space between the heading and input */
+    border-radius: 5px;
+  }
+  
+  form .btn {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    margin-left: 10px; /* Add space between the input and buttons */
+    max-width: fit-content;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  form .btn-delete {
+    background-color: #f44336; /* Optional: add different styling for delete button */
+    color: white;
+    border:none;
+    cursor: pointer;
+  }
+  
   main {
     width: 100%;
     display: flex;
@@ -40,7 +80,7 @@
 
 .seat-grid-left {
     display: grid;
-    grid-template-columns: repeat(4, 70px);
+    grid-template-columns: repeat(7, 70px);
     grid-template-rows: repeat(11, 50px);
     gap: 2px; 
     margin: 20px;
@@ -66,14 +106,14 @@
 }
 
 .seat-selected {
-    background-color: rgba(16, 16, 16, 0.355);
+    background-color: #f44336;
     box-shadow: 
     4px 4px 10px rgba(255, 255, 255, 0.6),
     -2px -2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .seat-vacant{
-  background-color: rgb(234, 232, 232);
+  background-color: #4CAF50;
   box-shadow: 
   4px 4px 10px rgba(0, 0, 0, 0.3),
   -2px -2px 5px rgba(255, 255, 255, 0.6);
@@ -91,15 +131,7 @@
     height: 30px;
     object-fit: contain;
   }
-  
-
-  .divider {
-    width: 2px;
-    background: var(--gray-400);
-    margin-inline: 0.5rem;
-  }
-
-  .booking-form {
+  /* .booking-form {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -119,10 +151,10 @@
     padding: 0.5rem;
     border-radius: 5px;
     border: 1px solid var(--gray-400);
-  }
+  } */
 
-.btn {
-    padding: 10px 20px;
+/* .btn { */
+    /* padding: 10px 20px;
     background-color: #4CAF50;
     max-width: fit-content;
     color: white;
@@ -139,7 +171,7 @@
     
     .btn:hover {
     opacity: 0.8;
-    }
+    } */
 
   @media screen and (max-width: 650px) {
     main {
